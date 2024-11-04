@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LayoutsModule } from './layouts/layouts.module';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,9 @@ import { LayoutsModule } from './layouts/layouts.module';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'CheckTimeApp';
+export class AppComponent implements OnInit{
+  ngOnInit(): void {
+    initFlowbite();
+  }
+  
 }
