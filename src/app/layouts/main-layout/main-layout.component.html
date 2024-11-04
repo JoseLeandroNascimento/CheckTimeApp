@@ -1,13 +1,11 @@
-<header>
-    <h1>CheckTime</h1>
-</header>
-<nav>
-    <p>Menu</p>
-</nav>
-<main>
-    <router-outlet />
-    <p>Content</p>
-</main>
-<footer>
-    <p>Footer</p>
-</footer>
+<div class="min-h-dvh ">
+    <app-menu-sidebar />
+    <section class="ml-64 flex flex-col h-dvh min-h-dvh">
+        <app-header-layout-main />
+        <main class="container mx-auto px-4 py-6 flex-1">
+            <router-outlet />
+            <p>Content</p>
+        </main>
+        <app-footer-layout-main />
+    </section>
+</div>
