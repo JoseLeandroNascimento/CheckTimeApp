@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { FeaturesRoutingModule } from './features-routing.module';
 import { EmployeeModule } from './employee/employee.module';
 
 
@@ -9,7 +8,6 @@ import { EmployeeModule } from './employee/employee.module';
   declarations: [],
   imports: [
     CommonModule,
-    FeaturesRoutingModule,
     EmployeeModule
   ]
 })
