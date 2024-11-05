@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { EmployeeFormComponent } from '../../components/form/employee-form/employee-form.component';
 import { CardComponent } from '../../../../shared/components/card/card.component';
+import { EmployeeFormComponent } from '../../components/form/employee-form/employee-form.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,5 +13,7 @@ import { CardComponent } from '../../../../shared/components/card/card.component
   styleUrl: './cadastro.component.scss'
 })
 export class CadastroComponent {
+
+   
 
 }

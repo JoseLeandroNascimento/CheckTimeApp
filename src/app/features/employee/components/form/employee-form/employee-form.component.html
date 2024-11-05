@@ -1,6 +1,10 @@
 <form [formGroup]="form">
     <div class="grid grid-cols-3 gap-3">
-        <app-input label="Nome completo" formControlName="nome"  mask="S*"/>
-        <app-input label="CPF" formControlName="cpf" mask="000.000.000-00"/>
+        <app-input label="Nome completo" formControlName="nome" mask="S*" />
+        <app-input label="CPF" formControlName="cpf" mask="000.000.000-00" />
+        <app-select label="Sexo" formControlName="sexo" [options]="sexos" />
+        <app-input-date label="Data de Nascimento"/>
     </div>
+
+
 </form>
