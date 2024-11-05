@@ -1,4 +1,4 @@
-import { Component, input, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, input, OnInit, signal, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { initFlowbite } from 'flowbite';
 import { NgxMaskDirective } from 'ngx-mask';
@@ -7,28 +7,32 @@ import { NgxMaskDirective } from 'ngx-mask';
   selector: 'app-input-date',
   standalone: true,
   imports: [
-    NgxMaskDirective
+    NgxMaskDirective,
+
   ],
   templateUrl: './input-date.component.html',
   styleUrl: './input-date.component.scss',
-  providers:[
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: InputDateComponent 
+      useExisting: InputDateComponent
     }
   ]
 })
-export class InputDateComponent implements OnInit,ControlValueAccessor{
+export class InputDateComponent implements OnInit, ControlValueAccessor {
+
+
+  @ViewChild('datePickerInput', { static: false }) datePickerInput!: ElementRef;
 
   public label = input<string>("")
   public mask = input<string>()
   public disable = input<boolean>(false)
-  public controlDisabled =  signal(this.disable())
+  public controlDisabled = signal(this.disable())
 
-  public value:string = ""
-  public onChange = (value:string)=>{}
-  public onTouched = ()=>{}
+  public value: string = ""
+  public onChange = (value: string) => { }
+  public onTouched = () => { }
 
   ngOnInit(): void {
     initFlowbite()
@@ -36,18 +40,21 @@ export class InputDateComponent implements OnInit,ControlValueAccessor{
 
   writeValue(value: string): void {
     this.value = value
-   }
-   
-   registerOnChange(fn: any): void {
-     this.onChange = fn
-   }
- 
-   registerOnTouched(fn: any): void {
-     this.onTouched = fn
-   }
-   setDisabledState?(isDisabled: boolean): void {
- 
-     this.controlDisabled.update(value => isDisabled)
-   }
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn
+  }
+  setDisabledState?(isDisabled: boolean): void {
+
+    this.controlDisabled.update(value => isDisabled)
+  }
+
+
+
 
 }
