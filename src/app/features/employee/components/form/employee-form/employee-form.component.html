@@ -1,1 +1,6 @@
-<p>employee-form works!</p>
+<form [formGroup]="form">
+    <div class="grid grid-cols-3 gap-3">
+        <app-input label="Nome completo" formControlName="nome"  mask="S*"/>
+        <app-input label="CPF" formControlName="cpf" mask="000.000.000-00"/>
+    </div>
+</form>

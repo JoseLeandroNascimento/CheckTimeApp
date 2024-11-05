@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { EmployeeFormComponent } from '../../components/form/employee-form/employee-form.component';
-import { SharedModule } from '../../../../shared/shared.module';
+import { CardComponent } from '../../../../shared/components/card/card.component';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
   imports: [
     EmployeeFormComponent,
-    SharedModule
+    CardComponent
   ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
