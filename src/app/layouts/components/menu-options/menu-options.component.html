@@ -1,0 +1,7 @@
+<ul class="space-y-2 font-medium">
+    @for (item of options(); track $index) {
+        <li>
+            <app-menu-item [itemMenu]="item"  />
+        </li>
+    }
+ </ul>
