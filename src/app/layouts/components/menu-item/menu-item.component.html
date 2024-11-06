@@ -3,7 +3,8 @@
 <a [routerLink]="itemMenu().routerLink"
     class="flex itemMenu()s-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-    <span [innerHTML]="itemMenu().icon | safeHtml"></span>
+    <span class="w-6 h-6 text-gray-800 dark:text-white" [innerHTML]="itemMenu().icon | safeHtml"></span>
+
 
     <span class="ms-3">{{itemMenu().label}}</span>
 </a>
@@ -15,7 +16,9 @@
     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
     [attr.aria-controls]="index" [attr.data-collapse-toggle]="index">
 
-    <span [innerHTML]="itemMenu().icon | safeHtml"></span>
+
+    <span class="w-6 h-6 text-gray-800 dark:text-white" [innerHTML]="itemMenu().icon | safeHtml"></span>
+    
 
 
     <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">{{itemMenu().label}}</span>
@@ -27,10 +30,10 @@
 
     <li>
         @for (item of itemMenu().options; track $index) {
-            <app-menu-item [itemMenu]="item" />
+        <app-menu-item [itemMenu]="item" />
         }
     </li>
-   
+
 </ul>
 
 }

@@ -9,7 +9,9 @@ export class SafeHtmlPipe implements PipeTransform {
 
   constructor(private readonly sanitizer: DomSanitizer) {}
 
-  transform(html: string): SafeHtml {
+  transform(html: string | undefined): SafeHtml {
+
+    html = html ?? ""
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
