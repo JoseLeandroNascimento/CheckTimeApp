@@ -1,9 +1,10 @@
 <form [formGroup]="form">
+    {{form.value | json}}
     <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
         <app-input label="Nome completo" formControlName="nome" mask="S*" />
         <app-input label="CPF" formControlName="cpf" mask="000.000.000-00" />
         <app-select label="Sexo" formControlName="sexo" [options]="sexos" />
-        <app-input-date label="Data de Nascimento"/>
+        <app-input-date label="Data de Nascimento" formControlName="dataNascimento"/>
     </div>
 
 </form>

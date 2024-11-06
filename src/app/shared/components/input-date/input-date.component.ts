@@ -1,5 +1,5 @@
 import { Component, ElementRef, input, OnInit, signal, ViewChild } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { initFlowbite } from 'flowbite';
 import { NgxMaskDirective } from 'ngx-mask';
 
@@ -8,7 +8,7 @@ import { NgxMaskDirective } from 'ngx-mask';
   standalone: true,
   imports: [
     NgxMaskDirective,
-
+    FormsModule
   ],
   templateUrl: './input-date.component.html',
   styleUrl: './input-date.component.scss',
@@ -30,15 +30,21 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
   public disable = input<boolean>(false)
   public controlDisabled = signal(this.disable())
 
-  public value: string = ""
-  public onChange = (value: string) => { }
+  public value: Date | null = null
+  public onChange = (value: Date) => { }
   public onTouched = () => { }
+
+  public selectData(){
+    if(this.value){
+      this.onChange(this.value)
+    }
+  }
 
   ngOnInit(): void {
     initFlowbite()
   }
 
-  writeValue(value: string): void {
+  writeValue(value: Date): void {
     this.value = value
   }
 
