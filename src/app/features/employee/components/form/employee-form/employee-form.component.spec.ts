@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmployeeFormComponent } from './employee-form.component';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 describe('EmployeeFormComponent', () => {
   let component: EmployeeFormComponent;
@@ -8,7 +9,10 @@ describe('EmployeeFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EmployeeFormComponent]
+      imports: [EmployeeFormComponent],
+      providers:[
+        provideEnvironmentNgxMask(),
+      ]
     })
     .compileComponents();
     
