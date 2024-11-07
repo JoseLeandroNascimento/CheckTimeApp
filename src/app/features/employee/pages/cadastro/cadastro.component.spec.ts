@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CadastroComponent } from './cadastro.component';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 describe('CadastroComponent', () => {
   let component: CadastroComponent;
@@ -8,7 +9,10 @@ describe('CadastroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CadastroComponent]
+      imports: [CadastroComponent],
+      providers:[
+        provideEnvironmentNgxMask(),
+      ]
     })
     .compileComponents();
     
