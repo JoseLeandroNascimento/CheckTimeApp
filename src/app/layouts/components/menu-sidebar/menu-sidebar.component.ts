@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { MENU_OPTIONS } from '../../../shared/constants/menu.constant';
 import { MenuOptionsComponent } from '../menu-options/menu-options.component';
@@ -7,7 +6,7 @@ import { MenuOptionsComponent } from '../menu-options/menu-options.component';
   selector: 'app-menu-sidebar',
   standalone: true,
   imports: [
-    NgClass,
+    
     MenuOptionsComponent
   ],
   templateUrl: './menu-sidebar.component.html',
