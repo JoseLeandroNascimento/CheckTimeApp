@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputComponent } from './input.component';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 describe('InputComponent', () => {
   let component: InputComponent;
@@ -8,7 +9,10 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputComponent]
+      imports: [InputComponent],
+      providers:[
+        provideEnvironmentNgxMask(),
+      ]
     })
     .compileComponents();
     
