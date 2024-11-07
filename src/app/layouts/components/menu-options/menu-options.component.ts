@@ -1,14 +1,12 @@
 import { Component, input } from '@angular/core';
-import { IMenuOption } from '../../../shared/interfaces/menu.interface';
 import { RouterModule } from '@angular/router';
-import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
+import { IMenuOption } from '../../../shared/interfaces/menu.interface';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 
 @Component({
   selector: 'app-menu-options',
   standalone: true,
   imports: [
-    SafeHtmlPipe,
     RouterModule,
     MenuItemComponent
   ],
