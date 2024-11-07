@@ -27,7 +27,7 @@ export class EmployeeFormComponent {
     nome: new FormControl<string>("",{nonNullable:true}),
     cpf: new FormControl<string>("",{nonNullable:true}),
     sexo: new FormControl<"M" | "F" | null>(null),
-    dataNascimento: new FormControl<Date | null>(null,{nonNullable:true})
+    dataNascimento: new FormControl<Date | null>(new Date(),{nonNullable:true})
   })
 
   public sexos: Option<"M" | "F">[] = [

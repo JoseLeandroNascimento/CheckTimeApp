@@ -30,13 +30,16 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
   public disable = input<boolean>(false)
   public controlDisabled = signal(this.disable())
 
-  public value: Date | null = null
+  public value: string | null = null
   public onChange = (value: Date) => { }
   public onTouched = () => { }
 
-  public selectData(){
-    if(this.value){
-      this.onChange(this.value)
+  public selectData() {
+    if (this.value) {
+      
+      const dataSelect = this.parseDate(this.numberToDateString(this.value))      
+      if (dataSelect != null)
+        this.onChange(dataSelect)
     }
   }
 
@@ -45,7 +48,8 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: Date): void {
-    this.value = value
+
+    this.value = this.convertDateToString(value)
   }
 
   registerOnChange(fn: any): void {
@@ -60,7 +64,29 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
     this.controlDisabled.update(value => isDisabled)
   }
 
+  convertDateToString(value: Date): string {
 
+    return value.toLocaleDateString('pt-BR')
+  }
 
+  numberToDateString(number:string):string{
 
+    return `${number.substring(0,2)}/${number.substring(2,4)}/${number.substring(4)}`
+  }
+
+  parseDate(dateString: string): Date | null {
+    const partes = dateString.split('/');
+    if (partes.length !== 3) {
+      console.error('Data inválida. O formato esperado é dd/mm/aaaa.');
+      return null;
+    }
+
+    const [dia, mes, ano] = partes.map(num => parseInt(num, 10));
+    if (isNaN(dia) || isNaN(mes) || isNaN(ano)) {
+      console.error('Data inválida. Os valores de dia, mês e ano precisam ser numéricos.');
+      return null;
+    }
+
+    return new Date(ano, mes - 1, dia);
+  }
 }
