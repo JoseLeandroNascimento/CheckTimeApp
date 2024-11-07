@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CardComponent } from '../../../../shared/components/card/card.component';
 import { EmployeeFormComponent } from '../../components/form/employee-form/employee-form.component';
 import { EmployeeRegister } from '../../components/form/employee-form/employee-resgister.interface';
+import { ButtonComponent } from '../../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,6 +10,7 @@ import { EmployeeRegister } from '../../components/form/employee-form/employee-r
   imports: [
     EmployeeFormComponent,
     CardComponent,
+    ButtonComponent
   ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
