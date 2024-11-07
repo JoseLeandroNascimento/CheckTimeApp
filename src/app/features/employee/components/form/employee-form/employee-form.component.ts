@@ -44,7 +44,8 @@ export class EmployeeFormComponent {
   }
 
   public onSubmit(){
-    if(this._form.valid){
+
+      this._form.markAllAsTouched()
 
       const event:EmployeeRegister = {
         cpf: this._form.value.cpf!,
@@ -55,6 +56,6 @@ export class EmployeeFormComponent {
         tefelefone: this.form.value.tefelefone!
       }
       this.employeeRegisterEvent.emit(event)
-    }
+
   }
 }
