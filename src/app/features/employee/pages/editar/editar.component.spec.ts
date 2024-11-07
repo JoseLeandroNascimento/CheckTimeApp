@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditarComponent } from './editar.component';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 describe('EditarComponent', () => {
   let component: EditarComponent;
@@ -8,7 +9,10 @@ describe('EditarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditarComponent]
+      imports: [EditarComponent],
+      providers:[
+        provideEnvironmentNgxMask(),
+      ]
     })
     .compileComponents();
     
