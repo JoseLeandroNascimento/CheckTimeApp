@@ -1,14 +1,12 @@
-import { Component, ElementRef, input, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { initFlowbite } from 'flowbite';
-import { NgxMaskDirective } from 'ngx-mask';
+
 
 @Component({
   selector: 'app-input-date',
   standalone: true,
   imports: [
-    NgxMaskDirective,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './input-date.component.html',
   styleUrl: './input-date.component.scss',
@@ -20,36 +18,36 @@ import { NgxMaskDirective } from 'ngx-mask';
     }
   ]
 })
-export class InputDateComponent implements OnInit, ControlValueAccessor {
+export class InputDateComponent implements ControlValueAccessor {
 
 
-  @ViewChild('datePickerInput', { static: false }) datePickerInput!: ElementRef;
 
   public label = input<string>("")
   public mask = input<string>()
   public disable = input<boolean>(false)
   public controlDisabled = signal(this.disable())
 
-  public value: string | null = null
+  private _value: string | null = null
   public onChange = (value: Date) => { }
   public onTouched = () => { }
 
-  public selectData() {
-    if (this.value) {
-      
-      const dataSelect = this.parseDate(this.numberToDateString(this.value))      
-      if (dataSelect != null)
-        this.onChange(dataSelect)
-    }
+  set value(v: string | null) {
+
+    if(v != null)
+      this.onChange(new Date(v))
+
+    this._value = v;
   }
 
-  ngOnInit(): void {
-    initFlowbite()
+  get value() {
+    return this._value
   }
 
-  writeValue(value: Date): void {
 
-    this.value = this.convertDateToString(value)
+  writeValue(value: Date | null): void {
+
+    this.value = value?.toISOString().split('T')[0] ?? null;
+   
   }
 
   registerOnChange(fn: any): void {
@@ -66,12 +64,12 @@ export class InputDateComponent implements OnInit, ControlValueAccessor {
 
   convertDateToString(value: Date): string {
 
-    return value.toLocaleDateString('pt-BR')
+    return value?.toLocaleDateString('pt-BR')
   }
 
-  numberToDateString(number:string):string{
+  numberToDateString(number: string): string {
 
-    return `${number.substring(0,2)}/${number.substring(2,4)}/${number.substring(4)}`
+    return `${number.substring(0, 2)}/${number.substring(2, 4)}/${number.substring(4)}`
   }
 
   parseDate(dateString: string): Date | null {

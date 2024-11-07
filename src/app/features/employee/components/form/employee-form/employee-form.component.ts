@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputDateComponent } from '../../../../../shared/components/input-date/input-date.component';
 import { InputComponent } from '../../../../../shared/components/input/input.component';
 import { Option } from '../../../../../shared/components/select/option';
@@ -27,10 +27,13 @@ export class EmployeeFormComponent {
     nome: new FormControl<string>("",{nonNullable:true}),
     cpf: new FormControl<string>("",{nonNullable:true}),
     sexo: new FormControl<"M" | "F" | null>(null),
-    dataNascimento: new FormControl<Date | null>(new Date(),{nonNullable:true})
+    dataNascimento: new FormControl<Date | null>(null,{nonNullable:true}),
+    email: new FormControl<string>("",{nonNullable:true,validators:[Validators.email]}),
+    tefelefone: new FormControl<string>("",{nonNullable:true}),
   })
 
-  public sexos: Option<"M" | "F">[] = [
+  public sexos: Option<"M" | "F" | null>[] = [
+    {label: "Selecione",value:null},
     {label: "Masculino",value:"M"},
     {label: "Feminino",value:"F"},
   ]
