@@ -8,9 +8,12 @@ export const MENU_OPTIONS: IMenuOption[] = [
         routerLink: undefined,
         options: [
             {
-                label: "Create",
+                label: "Register",
                 routerLink: ['employee/create'],
-
+            },
+            {
+                label: "Employees",
+                routerLink: null,
             }
         ]
     },
