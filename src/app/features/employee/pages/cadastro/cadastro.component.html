@@ -1,12 +1,15 @@
-<app-card>
+<app-card >
     <h3 class="md:text-lg text-base md:font-medium font-normal mb-4">Personal Information</h3>
 
     <app-employee-form #formRegisterEmployee (employeeRegisterEvent)="registerEmployeeHandle($event)"/>
 
-    <div class="flex justify-end mt-5">
-        <button type="reset" (click)="formRegisterEmployee.form.reset()"  app-button stypeButton="secondary">Reset</button>
-        <button (click)="formRegisterEmployee.onSubmit()" type="button" app-button stypeButton="primary">Register</button>
-       
+    <div class="flex md:justify-end gap-2 justify-center mt-5">
+        <button type="reset" (click)="formRegisterEmployee.form.reset()" class="md:w-max w-1/2"  app-button stypeButton="secondary">
+            Reset
+        </button>
+        <button (click)="formRegisterEmployee.onSubmit()" type="button" class="md:w-max w-1/2" app-button stypeButton="primary">
+            Register
+        </button>
     </div>
 </app-card>
 
