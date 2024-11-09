@@ -9,6 +9,9 @@ export const routes: Routes = [
             },
             {
                 path:"edit",loadComponent: ()=> import("./features/employee/pages/editar/editar.component").then(c => c.EditarComponent)
+            },
+            {
+                path: "registrations", loadComponent: ()=> import("./features/employee/pages/registrations/registrations.component").then(c=> c.RegistrationsComponent)
             }
         ]
     }

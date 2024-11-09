@@ -13,7 +13,7 @@ export const MENU_OPTIONS: IMenuOption[] = [
             },
             {
                 label: "Employees",
-                routerLink: null,
+                routerLink: ['employee/registrations'],
             }
         ]
     },

@@ -30,7 +30,6 @@ export class CadastroComponent implements OnInit {
       sexo: "M",
       tefelefone: "5568999512712"
     })
-
     
   }
 
