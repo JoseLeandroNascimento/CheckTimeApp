@@ -1,2 +1,17 @@
 
-<app-emproyee-list/>
+<app-table [columns]="columns">
+    <thead app-table-head>
+       <tr>
+            <th app-table-th id="nome">Nome</th>
+            <th app-table-th id="cpf">CPF</th>
+            <th app-table-th id="data_nascimento">Data de Nascimento</th>
+            <th app-table-th id="data_nascimento">Editar</th>
+       </tr>
+    </thead>
+
+    <!-- <thead app-table-head-sort>
+
+    </thead> -->
+</app-table>
+
+<app-emproyee-list class="mt-10"/>
